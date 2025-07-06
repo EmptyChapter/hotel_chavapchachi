@@ -23,4 +23,4 @@ API содержит 3 маршрута:
 - Создать и заполнить файл `.env`;
 - Запустить консоль и ввести команду `docker compose up -d`
 
-Для простоты тестирования вы можете воспользоваться [коллекцией запросов Postman](https://app.getpostman.com/join-team?invite_code=746eb260d1fa21014d27973bbd7ebc6c9caf707bd396f2bfe390d4bf2dc9d3e4&target_code=71de64106d52bdd0fe265c4c5c8b8df0).
+Для простоты тестирования вы можете воспользоваться коллекцией запросов Postman [по ссылке](https://app.getpostman.com/join-team?invite_code=746eb260d1fa21014d27973bbd7ebc6c9caf707bd396f2bfe390d4bf2dc9d3e4&target_code=71de64106d52bdd0fe265c4c5c8b8df0) или с помощью `JSON` файлов в папке `postman`.

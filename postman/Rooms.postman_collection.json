@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "584843f6-7716-468d-8bf3-6bc438462536",
+		"name": "Rooms",
+		"description": "Содержит все API точки поиска номеров.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14276059",
+		"_collection_link": "https://redexinus-2366.postman.co/workspace/HotelChavapchachi~88ef420c-4579-461e-968b-90b8756165d4/collection/14276059-584843f6-7716-468d-8bf3-6bc438462536?action=share&source=collection_link&creator=14276059"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/rooms/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"rooms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/rooms/?dateStart=2025-07-07&dateEnd=2025-07-14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"rooms",
+						""
+					],
+					"query": [
+						{
+							"key": "dateStart",
+							"value": "2025-07-07",
+							"description": "Start date"
+						},
+						{
+							"key": "dateEnd",
+							"value": "2025-07-14",
+							"description": "End date"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

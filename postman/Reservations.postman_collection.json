@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "f3d25b77-3e2f-4072-8b4a-13b48e345b01",
+		"name": "Reservations",
+		"description": "Содержит все API точки бронирования номеров.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14276059",
+		"_collection_link": "https://redexinus-2366.postman.co/workspace/HotelChavapchachi~88ef420c-4579-461e-968b-90b8756165d4/collection/14276059-f3d25b77-3e2f-4072-8b4a-13b48e345b01?action=share&source=collection_link&creator=14276059"
+	},
+	"item": [
+		{
+			"name": "new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roomId\": 1,\r\n    \"customerId\": 1,\r\n    \"dateStart\": \"2025-07-16\",\r\n    \"dateEnd\": \"2025-07-28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/api/reservations/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"reservations",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 7,\r\n    \"customerId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/api/reservations/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"reservations",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

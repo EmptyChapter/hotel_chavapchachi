@@ -1,3 +1,4 @@
 .env*
 /prisma/dumps
 readme.md
+/postman
