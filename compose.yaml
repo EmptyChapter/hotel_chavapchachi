@@ -8,14 +8,14 @@ services:
       PGTZ:               'UTC'
       POSTGRES_USER:      ${DB_USER}
       POSTGRES_PASSWORD:  ${DB_PASS}
-      POSTGRES_DB:        ${DB_CTLG}
+      POSTGRES_DB:        hotel_chavapchachi
 
     volumes:
       - ./prisma/dumps:/docker-entrypoint-initdb.d/
 
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${DB_USER} -d ${DB_CTLG}'"]
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${DB_USER} -d hotel_chavapchachi'"]
       interval: 10s
       timeout: 3s
       retries: 3
