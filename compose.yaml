@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:17.4-alpine3.21
+    container_name: database
+
+    environment:
+      TZ:                 'UTC'
+      PGTZ:               'UTC'
+      POSTGRES_USER:      ${DB_USER}
+      POSTGRES_PASSWORD:  ${DB_PASS}
+      POSTGRES_DB:        ${DB_CTLG}
+
+    volumes:
+      - ./prisma/dumps:/docker-entrypoint-initdb.d/
+
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${DB_USER} -d ${DB_CTLG}'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+
+    ports:
+      - ${DB_PORT}:5432
+  application:
+    build: .
+    container_name: application
+
+    environment:
+      APP_DBCS: ${APP_DBCS}
+
+    restart: unless-stopped
+
+    ports:
+      - ${APP_PORT}:3000

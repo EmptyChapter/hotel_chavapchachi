@@ -1,0 +1,83 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("APP_DBCS")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+/// Represents hotel room.
+model Room {
+    /// Gets an identifier of a room.
+    id Int @id @default(autoincrement())
+
+    /// Gets room number.
+    number      Int     @unique
+    /// Gets room description.
+    description String?
+
+    /// Gets number of beds in a room.
+    beds  Int @default(1)
+    /// Gets number of rooms in a room.
+    rooms Int @default(1)
+
+    /// Gets indication of whether or not room contains fridge.
+    fridge    Boolean @default(false)
+    /// Gets indication of whether or not room contains microwave.
+    microwave Boolean @default(false)
+    /// Gets indication of whether or not room contains kitchen range.
+    range     Boolean @default(false)
+    /// Gets indication of whether or not room contains shower.
+    shower    Boolean @default(false)
+    /// Gets indication of whether or not room contains toilet.
+    toilet    Boolean @default(false)
+    /// Gets indication of whether or not room contains tv.
+    tv        Boolean @default(false)
+
+    /// Gets room price per night.
+    price Float
+
+    /// Gets a collection of room reservations.
+    reservations Reservation[]
+}
+
+/// Represents hotel customer.
+model Customer {
+    /// Gets an identifier of a customer.
+    id Int @id @default(autoincrement())
+
+    /// Gets customer`s given name.
+    firstName String
+    /// Gets customer`s last name
+    lastName  String
+
+    /// Gets a collection of customer reservations.
+    reservations Reservation[]
+}
+
+/// Represents hotel room reservations.
+model Reservation {
+    /// Gets an identifier of a reservation.
+    id Int @id @default(autoincrement())
+
+    /// Gets an instance of hotel room.
+    room       Room     @relation(references: [id], fields: [roomId])
+    /// Gets an identifier of a room.
+    roomId     Int
+    /// Gets an instance of hotel customer.
+    customer   Customer @relation(references: [id], fields: [customerId])
+    /// Gets an identifier of a customer.
+    customerId Int
+
+    /// Gets an indication of whether or not customer is VIP.
+    isVip Boolean @default(false)
+
+    /// Gets check-in date of reservation.
+    dateStart DateTime
+    /// Gets check-out date of reservation.
+    dateEnd   DateTime
+
+    /// Gets total cost of reservation.
+    cost Float
+}
